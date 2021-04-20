@@ -108,6 +108,7 @@ class Blockchain(object):
             proof += 1
         retrun proof
 
+
     @staticmethod
     def valid_proof(last_proof, proof):
         '''
@@ -118,7 +119,9 @@ class Blockchain(object):
         proof: <int> current proof
         Return:
         -------
-        <bool> True if hash contains the 4 leading 0's
+        <bool> the last 4 characters of the guess hash, True if hash contains the 4 leading 0's, false if not
         '''
 
         guess = f'{last_proof}{proof}'.encode()
+        guess_hash = hashlib.sha256(guess).hexdigest()
+        return guess_hash[:4] == '0000'
