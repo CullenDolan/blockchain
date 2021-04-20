@@ -3,6 +3,7 @@
 import hashlib
 import json
 from time import time
+from uuid import uuid4
 
 
 class Blockchain(object):
@@ -86,3 +87,38 @@ class Blockchain(object):
     def last_block(self):
         '''returns the last block in the chain'''
         return self.chain[-1]
+
+    
+    def proof_of_work(self, last_proof):
+        '''
+        PoW algorithm that finds the proof p' such that hash(previous block) contains 4 leading zeros
+        p is the previous proof and p' is the new proof
+        
+        Parameters:
+        -----------
+        last_proof: <int> 
+
+        Return:
+        -------
+        <int>
+        '''
+
+        proof = 0
+        while self.valid_proof(last_proof, proof) is False:
+            proof += 1
+        retrun proof
+
+    @staticmethod
+    def valid_proof(last_proof, proof):
+        '''
+        Validates the proof > Does has(last_proof, proof) contain 4 leading 0's
+        Parameters:
+        -----------
+        last_proof: <int> 
+        proof: <int> current proof
+        Return:
+        -------
+        <bool> True if hash contains the 4 leading 0's
+        '''
+
+        guess = f'{last_proof}{proof}'.encode()

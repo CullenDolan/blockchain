@@ -6,4 +6,21 @@ Trying to build a full app to deploy on AWS with the flask framework. Using [thi
 * **Block** - An object that typically includes an index, timestamp, list of transactions, a proof, and hash of previous block.
 * **Transactions** - Part of the block that include the sender, recipient, and amount exchanged.
 * **Genesis Block** - Very first blok in the chain that needs to be created manually.
-* **SHA-256** - Secure Hash Algorithm, computed with 8 32-bit words. THe current standard for encryption. This is important because most computers have a 32-bit or 64-bit architecture, and that is the amount of information a CPU can process each time it performs an operation
+* **SHA-256** - Secure Hash Algorithm, computed with 8 32-bit words. This is important because most computers have a 32-bit or 64-bit architecture, and that is the amount of information a CPU can process each time it performs an operation.
+* **Proof of Work** - One party (prover) perform a moderately hard, but feasible computation that is easy to check by another part (varifier).
+
+## Python Libraries Imported
+* **hashlib** - [Documentation](https://docs.python.org/3/library/hashlib.html) specifically `.sha256()` -  creates a SHA-256 hash object and `.hexdigest()` - returns the data passed to the hass object as a string object of *double* length, containing only hexidecimal digits.
+* **json** - [Documentation](https://docs.python.org/3/library/json.html)  specifically `json.dumps` - converts serialized object to JSOM formatted string.
+* **uuid** -
+* **time** -
+
+
+## Python Decorators Used
+* **staticmethod** - 
+* **property** - 
+
+## Built-in Python Functions and Methods Used
+* **.encode()** - 
+* **.append()** - 
+
