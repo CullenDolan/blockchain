@@ -12,7 +12,7 @@ Trying to build a full app to deploy on AWS with the flask framework. Using [thi
 ## Python Libraries Imported
 * **hashlib** [[Documentation](https://docs.python.org/3/library/hashlib.html)] - specifically `.sha256()` creates a SHA-256 hash object and `.hexdigest()` returns the data passed to the hass object as a string object of *double* length, containing only hexidecimal digits.
 * **json** [[Documentation](https://docs.python.org/3/library/json.html)] - specifically `json.dumps` converts serialized object to JSOM formatted string.
-* **uuid** -
+* **uuid** - [[Documentation](https://docs.python.org/3/library/uuid.html)] - immutable unique IDs that come with '-'
 * **time** -
 
 
@@ -23,4 +23,4 @@ Trying to build a full app to deploy on AWS with the flask framework. Using [thi
 ## Built-in Python Functions and Methods Used
 * **.encode()** [[Documentation](https://docs.python.org/3/howto/unicode.html#converting-to-bytes)] - strings are initially stored as Unicode and this method converts the string to UTF-8
 * **.append()** [[Documentation](https://docs.python.org/3/tutorial/datastructures.html)] - adds an item to the end of a list
-
+* **.replace()** [[Documentation](https://docs.python.org/3/library/stdtypes.html#str.replace)] - returns a copy of the original string w/ the new string
