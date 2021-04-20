@@ -13,7 +13,7 @@ Trying to build a full app to deploy on AWS with the flask framework. Using [thi
 * **hashlib** [[Documentation](https://docs.python.org/3/library/hashlib.html)] - specifically `.sha256()` creates a SHA-256 hash object and `.hexdigest()` returns the data passed to the hass object as a string object of *double* length, containing only hexidecimal digits.
 * **json** [[Documentation](https://docs.python.org/3/library/json.html)] - specifically `json.dumps` converts serialized object to JSOM formatted string.
 * **uuid** - [[Documentation](https://docs.python.org/3/library/uuid.html)] - immutable unique IDs that come with '-'
-* **time** -
+* **time** - 
 
 
 ## Python Decorators Used

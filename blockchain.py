@@ -4,7 +4,8 @@ import hashlib
 import json
 from time import time
 from uuid import uuid4
-from flask import flaskfrom textwrap import dedent
+from flask import Flask, jsonify, request
+from textwrap import dedent
 
 
 class Blockchain(object):
@@ -107,7 +108,7 @@ class Blockchain(object):
         proof = 0
         while self.valid_proof(last_proof, proof) is False:
             proof += 1
-        retrun proof
+        return proof
 
 
     @staticmethod
@@ -136,7 +137,7 @@ node_identifier = str(uuid4()).replace('-','')
 
 
 # Instantiate the Blockchain Class
-blockchain = BlockChain()
+blockchain = Blockchain()
 
 
 @app.route('/mine', methods=['GET'])
@@ -144,9 +145,20 @@ def mine():
     return "Mining a new block"
 
 
-@app.route('/transiactions/new', methods=['POST'])
+@app.route('/transactions/new', methods=['POST'])
 def new_transaction():
-    return "Starting a new transaction"
+    values = request.get_json()
+
+    # validate all fields are in posted data
+    required = ['sender', 'recipient', 'amount']
+    if not all(k in values for k in required):
+        return "Missing Values", 400
+
+    # create new transaction
+    index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'])
+
+    response = {'message': f'Transaction will be added to Block {index}'}
+    return jsonify(response), 201
 
 
 @app.route('/chain', methods=['GET'])
@@ -157,5 +169,5 @@ def full_chain():
     }
     return jsonify(response), 200
 
-if __name == '__main__':
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
