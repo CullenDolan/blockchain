@@ -139,10 +139,34 @@ node_identifier = str(uuid4()).replace('-','')
 # Instantiate the Blockchain Class
 blockchain = Blockchain()
 
+@app.route('/')
+def home():
+    return "CDeezCoins"
+
 
 @app.route('/mine', methods=['GET'])
 def mine():
-    return "Mining a new block"
+    "run the PoW algorithm to get the next proof"
+    last_block = blockchain.last_block
+    last_proof = last_block['proof']
+    proof = blockchain.proof_of_work(last_proof)
+
+    # Get a reward for finding the proof
+    blockchain.new_transaction(sender='0', recipient=node_identifier, amount=1)
+
+    # add the new block to the chain
+    previous_hash = blockchain.hash(last_block)
+    block = blockchain.new_block(proof, previous_hash)
+
+    response = {
+        'message': 'New block added to chain',
+        'index': block['index'],
+        'transaction': block['transaction'],
+        'proof': block['proof'],
+        'previous_hash': block['previous_hash']
+    }
+    return jsonify(response), 200
+
 
 
 @app.route('/transactions/new', methods=['POST'])
