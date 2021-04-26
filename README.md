@@ -17,8 +17,8 @@ Trying to build a full app to deploy on AWS with the flask framework. Using [thi
 
 
 ## Python Decorators Used
-* **staticmethod** - 
-* **property** - 
+* **staticmethod** [[Documentation](https://docs.python.org/3/library/functions.html#staticmethod)] - does not receive an implicit first argument
+* **property** [[Documentation](https://docs.python.org/3/library/functions.html#property)] - 
 
 ## Built-in Python Functions and Methods Used
 * **.encode()** [[Documentation](https://docs.python.org/3/howto/unicode.html#converting-to-bytes)] - strings are initially stored as Unicode and this method converts the string to UTF-8
