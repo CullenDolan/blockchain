@@ -1,5 +1,5 @@
 # Blockchain App
-Trying to build a full app to deploy on AWS with the flask framework. Using [this blog on HackerNoon](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46) as the guide.
+Buildinga small app to deploy on AWS with the flask framework. Using [this blog on HackerNoon](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46) as the guide.
 
 ## Definitions
 * **Hash** - A function that takes an input value and creates an output value in a deterministic way. The simplest example is *f(x) = y*. And y cannot be reerse engineered to get x.
